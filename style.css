@@ -1,0 +1,234 @@
+
+body {
+    background-color: #66abca; 
+    color: #f3f4f6; 
+    font-family: 'Inter', sans-serif;
+}
+
+.container-my-5 {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+/* --- 2. Navigation Bar --- */
+.navbar {
+    background-color: #111827 !important; 
+    border-bottom: 3px solid #3b82f6; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+}
+
+.navbar-brand, .nav-link {
+    color: #f3f4f6 !important;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+/* --- 3. Product Cards Enhancement --- */
+.card {
+    background-color: #374151; 
+    border: 1px solid #4b5563; 
+    color: #f3f4f6;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 12px; 
+}
+
+.card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 15px 30px rgba(59, 130, 246, 0.2); 
+    border-color: #3b82f6;
+}
+
+.card-title {
+    font-weight: 600;
+    color: #f3f4f6;
+}
+
+.card-text {
+    color: #a3a3a3 !important; 
+}
+
+.card-text.fw-bold.fs-4 {
+    color: #10b981; 
+    font-size: 1.8rem !important;
+}
+
+/* --- 4. Call-to-Action Buttons --- */
+
+.btn-primary {
+    background-color: #6d16cf !important; 
+    background-color: #6d16cf !important; 
+    font-weight: 600;
+    transition: background-color 0.2s;
+    border-radius: 8px;
+}
+
+.btn-primary:hover {
+    background-color: #2563eb !important; 
+    border-color: #2563eb !important;
+}
+
+.btn-danger {
+    background-color: #ef4444 !important;
+    border-color: #ef4444 !important;
+}
+
+.btn-danger:hover {
+    background-color: #dc2626 !important;
+    border-color: #dc2626 !important;
+}
+
+/* --- 5. Cart Offcanvas & Checkout Section --- */
+
+.offcanvas {
+    background-color: #111827; 
+    color: #f3f4f6;
+}
+
+.offcanvas-header, .offcanvas-title {
+    background-color: #111827;
+    color: #f3f4f6;
+    border-bottom: 1px solid #374151;
+}
+
+.form-control {
+    background-color: #374151; 
+    color: #f3f4f6;
+    border-color: #4b5563;
+}
+
+.form-control:focus {
+    background-color: #374151;
+    color: #f3f4f6;
+    border-color: #3b82f6; 
+    box-shadow: 0 0 0 0.25rem rgba(59, 130, 246, 0.25);
+}
+
+.list-group-item {
+    background-color: #111827;
+    border-color: #374151;
+    color: #f3f4f6;
+}
+
+#total-container .fw-bold {
+    color: #10b981; 
+}
+
+.alert-info {
+    background-color: #1e40af; 
+    color: #bfdbfe;
+    border-color: #3b82f6;
+    border-radius: 8px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+:root{
+  --purple-30: #EDE6FF; /* 30% - soft surface */
+  --purple-60: #8A63E6; /* 60% - accent */
+  --purple-100:#5B21B6; /* 100% - primary */
+  --muted: rgba(0,0,0,0.45);
+}
+
+/* Minimalist product card */
+.product-card {
+  background: var(--purple-30);
+  border: none;
+  border-radius: 12px;
+  padding: 0.5rem;
+  overflow: hidden;
+  transition: transform .18s ease, box-shadow .18s ease;
+  box-shadow: 0 1px 6px rgba(20,15,40,0.06);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Accent bar on the left for visual identity */
+.product-card::before{
+  content: "";
+  width: 6px;
+  background: linear-gradient(180deg, var(--purple-60), var(--purple-100));
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+
+/* internal body spacing (keeps bootstrap card-body layout) */
+.product-card .card-body{
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+/* Title and description */
+.product-card .card-title{
+  font-weight: 600;
+  margin: 0;
+  color: var(--purple-100);
+  font-size: 1rem;
+}
+.product-card .card-desc{
+  font-size: .88rem;
+  color: rgba(27, 21, 38, 0.6);
+  margin: 0;
+  line-height: 1.15;
+}
+
+/* Footer (price + add button) */
+.product-card .card-footer{
+  margin-top: auto;
+  display: flex;
+  gap: .75rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Price styling */
+.product-card .price{
+  color: var(--purple-100);
+  font-weight: 700;
+  font-size: 1.125rem;
+}
+
+/* Add button (minimal) */
+.btn-add{
+  background: linear-gradient(90deg,var(--purple-60),var(--purple-100));
+  color: #fff;
+  border: none;
+  padding: .45rem .8rem;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: .92rem;
+  box-shadow: 0 6px 14px rgba(91,33,182,0.12);
+  transition: transform .14s ease, box-shadow .14s ease, opacity .14s ease;
+}
+.btn-add:active{ transform: translateY(1px); }
+.btn-add:hover{ opacity: .96; box-shadow: 0 10px 20px rgba(91,33,182,0.14); }
+
+/* Card hover lift */
+.col .product-card:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 10px 30px rgba(20,15,40,0.10);
+}
+
+/* Make sure left accent doesn't cover content on small screens */
+@media (max-width: 576px){
+  .product-card::before{ width: 4px; }
+  .product-card .card-body{ padding-left: 0.9rem; }
+}
