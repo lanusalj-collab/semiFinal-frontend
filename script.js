@@ -1,27 +1,29 @@
 // script.js
 
 // --- Basic product data (20 Gadget Products) ---
+const PEXELS_API_KEY = "zMdhk5QB6WkxyVU5p1mAzU9HTYHMHjJcu5piEs8OYwkwyKmNrUhSt0VC";
+
 const productList = [
-    { id: 1, name: "Laptop Pro X", price: 1299.00, desc: "High-performance laptop for professionals.", stock: 10 },
-    { id: 2, name: "Wireless Headphones Z", price: 199.99, desc: "Noise-cancelling headphones with deep bass.", stock: 25 },
-    { id: 3, name: "Smartphone 15 Ultra", price: 999.00, desc: "Latest flagship smartphone with advanced camera.", stock: 15 },
-    { id: 4, name: "Smart Watch 6", price: 249.50, desc: "Fitness and health tracker with 5-day battery life.", stock: 30 },
-    { id: 5, name: "Portable SSD 1TB", price: 89.99, desc: "Ultra-fast external storage for backups and transfers.", stock: 40 },
-    { id: 6, name: "Gaming Mouse RGB", price: 49.99, desc: "Ergonomic gaming mouse with customizable RGB lighting.", stock: 50 },
-    { id: 7, name: "Mechanical Keyboard", price: 119.00, desc: "Tactile mechanical keyboard for typing and gaming.", stock: 20 },
-    { id: 8, name: "Bluetooth Speaker Mini", price: 35.00, desc: "Pocket-sized speaker with powerful sound.", stock: 60 },
-    { id: 9, name: "4K Webcam", price: 79.99, desc: "High-resolution webcam for streaming and video calls.", stock: 18 },
-    { id: 10, name: "E-Reader Paperbook 4", price: 129.99, desc: "Glare-free screen for comfortable reading.", stock: 22 },
-    { id: 11, name: "Mesh Wi-Fi System", price: 199.00, desc: "Blanket your home with fast, reliable Wi-Fi.", stock: 12 },
-    { id: 12, name: "Drone Explorer SE", price: 349.99, desc: "Foldable drone with 4K video recording.", stock: 8 },
-    { id: 13, name: "USB-C Hub 7-in-1", price: 39.95, desc: "Expand your laptop's connectivity with multiple ports.", stock: 75 },
-    { id: 14, name: "Portable Power Bank 20K", price: 45.00, desc: "High-capacity power bank for multiple charges.", stock: 90 },
-    { id: 15, name: "VR Headset", price: 399.00, desc: "Immersive virtual reality experience.", stock: 11 },
-    { id: 16, name: "Stylus Pen Pro", price: 19.99, desc: "Precision stylus for tablets and touchscreens.", stock: 100 },
-    { id: 17, name: "Smart Home Hub", price: 89.00, desc: "Control all your smart devices from one place.", stock: 14 },
-    { id: 18, name: "Laser Projector Compact", price: 599.00, desc: "Portable projector for a cinema experience anywhere.", stock: 7 },
-    { id: 19, name: "Gaming Headset Elite", price: 75.50, desc: "Comfortable over-ear headset with clear mic.", stock: 33 },
-    { id: 20, name: "Tablet Slim 11-inch", price: 399.00, desc: "Lightweight tablet perfect for media consumption.", stock: 16 }
+  { id: 1, name: "Trail Runner 300", price: 129.99, desc: "Lightweight trail running shoe with grippy outsole.", stock: 24, image: "https://via.placeholder.com/400x280?text=Trail+Runner+300" },
+  { id: 2, name: "Urban Sneak Low", price: 89.50, desc: "Everyday sneaker with breathable knit upper.", stock: 40, image: "https://via.placeholder.com/400x280?text=Urban+Sneak+Low" },
+  { id: 3, name: "Court Master Pro", price: 109.00, desc: "Cushioned court shoe for quick lateral movement.", stock: 18, image: "https://via.placeholder.com/400x280?text=Court+Master+Pro" },
+  { id: 4, name: "City Slip-On", price: 69.99, desc: "Easy slip-on for commuting and errands.", stock: 55, image: "https://via.placeholder.com/400x280?text=City+Slip-On" },
+  { id: 5, name: "Classic Leather Oxford", price: 149.00, desc: "Timeless leather shoe for smart casual looks.", stock: 12, image: "https://via.placeholder.com/400x280?text=Leather+Oxford" },
+  { id: 6, name: "Performance Run 5", price: 139.95, desc: "Responsive running shoe with foam midsole.", stock: 30, image: "https://via.placeholder.com/400x280?text=Performance+Run+5" },
+  { id: 7, name: "Hiker GTX", price: 179.00, desc: "Water-resistant hiking boot with ankle support.", stock: 10, image: "https://via.placeholder.com/400x280?text=Hiker+GTX" },
+  { id: 8, name: "Mesh Trainer X", price: 79.00, desc: "Gym trainer with breathable mesh and stable base.", stock: 66, image: "https://via.placeholder.com/400x280?text=Mesh+Trainer+X" },
+  { id: 9, name: "Retro Canvas Low", price: 59.99, desc: "Casual canvas shoe with vintage styling.", stock: 80, image: "https://via.placeholder.com/400x280?text=Retro+Canvas+Low" },
+  { id: 10, name: "Desert Chukka", price: 119.50, desc: "Versatile chukka boot with soft suede upper.", stock: 20, image: "https://via.placeholder.com/400x280?text=Desert+Chukka" },
+  { id: 11, name: "Tennis Ace 2", price: 99.99, desc: "Durable tennis shoe built for court traction.", stock: 25, image: "https://via.placeholder.com/400x280?text=Tennis+Ace+2" },
+  { id: 12, name: "Slip-Resist Work", price: 129.00, desc: "Work shoe with slip-resistant outsole and comfort sole.", stock: 14, image: "https://via.placeholder.com/400x280?text=Slip-Resist+Work" },
+  { id: 13, name: "Minimalist Barefoot", price: 89.00, desc: "Low-profile barefoot shoe for natural movement.", stock: 38, image: "https://via.placeholder.com/400x280?text=Minimalist+Barefoot" },
+  { id: 14, name: "All-Weather Runner", price: 149.99, desc: "Waterproof running shoe for rainy conditions.", stock: 9, image: "https://via.placeholder.com/400x280?text=All-Weather+Runner" },
+  { id: 15, name: "Weekend Loafer", price: 99.50, desc: "Comfortable loafer with cushioned insole.", stock: 33, image: "https://via.placeholder.com/400x280?text=Weekend+Loafer" },
+  { id: 16, name: "Court Pro High", price: 129.00, desc: "High-top court shoe with ankle stability.", stock: 16, image: "https://via.placeholder.com/400x280?text=Court+Pro+High" },
+  { id: 17, name: "Lightweight Hiking Shoe", price: 139.00, desc: "Low-cut hiking shoe for fastpacking and trails.", stock: 22, image: "https://via.placeholder.com/400x280?text=Lightweight+Hiking+Shoe" },
+  { id: 18, name: "Freestyle Skate", price: 74.99, desc: "Skate-style shoe with reinforced toe and grip cupsole.", stock: 29, image: "https://via.placeholder.com/400x280?text=Freestyle+Skate" },
+  { id: 19, name: "Comfort Walker", price: 84.99, desc: "Daily walker with soft cushioning and arch support.", stock: 47, image: "https://via.placeholder.com/400x280?text=Comfort+Walker" },
+  { id: 20, name: "Elite Marathon", price: 199.00, desc: "High-performance marathon shoe with carbon plate.", stock: 6, image: "https://via.placeholder.com/400x280?text=Elite+Marathon" }
 ];
 
 // --- DOM Elements ---
@@ -36,45 +38,66 @@ const confirmCheckoutBtn = document.getElementById('confirm-checkout');
 // Initialize cart from localStorage or as an empty array
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
+
+async function fetchProductImage(query) {
+  try {
+    const res = await fetch(`https://api.pexels.com/v1/search?query=${encodeURIComponent(query + " shoes")}&per_page=1`, {
+      headers: {
+        Authorization: PEXELS_API_KEY
+      }
+    });
+    const data = await res.json();
+    console.log(data)
+    // Return the first image URL or a fallback if none found
+    return data.photos?.[0]?.src?.medium || "https://picsum.photos/400/280?random=" + Math.random();
+  } catch (err) {
+    console.error("Error fetching image for", query, err);
+    return "https://picsum.photos/400/280?random=" + Math.random(); // fallback image
+  }
+}
+
 // --- Cart Persistence and Rendering ---
 
 function saveCart() {
     localStorage.setItem('cart', JSON.stringify(cart));
 }
 
-function renderProducts() {
-    productListEl.innerHTML = ''; // Clear existing content
+async function renderProducts() {
+  productListEl.innerHTML = ''; // Clear existing content
 
-    productList.forEach(prod => {
-        const col = document.createElement('div');
-        col.className = 'col';
+  for (const prod of productList) {
+    const imageUrl = await fetchProductImage(prod.name); // Fetch image dynamically
 
-        col.innerHTML = `
-            <div class="card product-card position-relative h-100">
-                <div class="card-body d-flex flex-column">
-                    <div class="card-meta">
-                      <h5 class="card-title">${prod.name}</h5>
-                      <p class="card-desc">${prod.desc}</p>
-                    </div>
+    const col = document.createElement('div');
+    col.className = 'col';
 
-                    <div class="card-footer mt-auto">
-                      <div class="price">$${prod.price.toFixed(2)}</div>
-                      <button class="btn btn-add btn-add-to-cart" data-id="${prod.id}" aria-label="Add ${prod.name} to cart">Add</button>
-                    </div>
-                </div>
-            </div>
-        `;
+    col.innerHTML = `
+      <div class="card product-card position-relative h-100">
+          <img src="${imageUrl}" class="card-img-top" alt="${prod.name}" style="height: 280px; object-fit: cover;">
+          <div class="card-body d-flex flex-column">
+              <div class="card-meta">
+                <h5 class="card-title">${prod.name}</h5>
+                <p class="card-desc">${prod.desc}</p>
+              </div>
 
-        productListEl.appendChild(col);
+              <div class="card-footer mt-auto">
+                <div class="price">$${prod.price.toFixed(2)}</div>
+                <button class="btn btn-add btn-add-to-cart" data-id="${prod.id}" aria-label="Add ${prod.name} to cart">Add</button>
+              </div>
+          </div>
+      </div>
+    `;
+
+    productListEl.appendChild(col);
+  }
+
+  // Attach event listeners to all "Add to Cart" buttons
+  document.querySelectorAll('.btn-add-to-cart').forEach(button => {
+    button.addEventListener('click', (e) => {
+      const id = parseInt(e.target.dataset.id);
+      addToCart(id);
     });
-
-    // Attach event listeners to all "Add to Cart" buttons
-    document.querySelectorAll('.btn-add-to-cart').forEach(button => {
-        button.addEventListener('click', (e) => {
-            const id = parseInt(e.target.dataset.id);
-            addToCart(id);
-        });
-    });
+  });
 }
 
 function addToCart(id) {
