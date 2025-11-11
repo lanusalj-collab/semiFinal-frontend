@@ -81,8 +81,8 @@ async function renderProducts() {
               </div>
 
               <div class="card-footer mt-auto">
-                <div class="price">$${prod.price.toFixed(2)}</div>
-                <button class="btn btn-add btn-add-to-cart" data-id="${prod.id}" aria-label="Add ${prod.name} to cart">Add</button>
+                <div class="price" style="padding-bottom: 10px">$${prod.price.toFixed(2)}</div>
+                <button class="btn btn-add btn-add-to-cart rounded-pill btn-secondary rounded w-100 add-cart-btn" data-id="${prod.id}" aria-label="Add ${prod.name} to cart" style="background-color: #B6F500; color: #000000;">Add</button>
               </div>
           </div>
       </div>
