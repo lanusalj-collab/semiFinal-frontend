@@ -3,9 +3,179 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>About Us - ShoeHub</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-60), var(--primary-100));
+            padding: 4rem 0;
+            color: white;
+            text-align: center;
+            border-radius: 12px;
+            margin-bottom: 3rem;
+        }
+
+        .about-card {
+            background: linear-gradient(180deg, var(--primary-30), rgba(255,255,255,0.01));
+            border: none;
+            border-radius: 12px;
+            padding: 2rem;
+            transition: transform .18s ease, box-shadow .18s ease;
+            box-shadow: 0 4px 18px rgba(20,15,40,0.06);
+        }
+
+        .about-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 14px 40px rgba(20,15,40,0.11);
+        }
+
+        .about-card h4 {
+            color: var(--primary-100);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .about-card p {
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .icon-box {
+            font-size: 2.5rem;
+            color: var(--primary-60);
+            margin-bottom: 1rem;
+        }
+
+        .team-member {
+            text-align: center;
+            padding: 1.5rem;
+            border-radius: 12px;
+            background: var(--primary-30);
+        }
+
+        .team-member img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            border: 3px solid var(--primary-60);
+        }
+
+        .team-member h5 {
+            color: var(--primary-100);
+            font-weight: 600;
+        }
+
+        .team-member p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+    </style>
 </head>
-<body>
-    <p>sample</p>
+<body class="bg-dark" data-bs-theme="dark">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm sticky-top">
+        <div class="container-fluid">
+           <a class="navbar-brand fw-bold" href="index.html">
+                <i class="fas fa-shoe-prints" style="color: #B6F500;"></i> ShoeHub
+            </a>
+            
+            <div class="nav-list d-flex align-items-center gap-3">
+                <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="aboutus.html">About Us</a>
+                    </li>
+                </ul>
+            </div>
+                <div class="d-flex gap-2">
+                    <!-- Cart Button -->
+                    <button class="btn btn-outline-primary position-relative" type="button" data-bs-toggle="offcanvas" data-bs-target="#cart-section" aria-controls="cart-section">
+                        Cart (<span id="cart-count">0</span>)
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="container my-5">
+        <div class="hero-section">
+            <h1 class="display-4 fw-bold mb-3">Welcome to ShoeHub</h1>
+            <p class="lead">Your destination for premium footwear & comfort</p>
+        </div>
+
+        <!-- About Section -->
+        <section class="mb-5">
+            <h2 class="h3 text-center mb-4" style="color: var(--primary-100); font-weight: 700;">Our Story</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <p class="lead text-center" style="color: var(--text-muted); line-height: 1.8;">
+                        ShoeHub was founded in 2020 with a simple mission: to bring quality, comfort, and style to every step you take. 
+                        We believe that the right pair of shoes can transform your day, your confidence, and your life.
+                    </p>
+                    <p class="text-center" style="color: var(--text-muted); line-height: 1.8;">
+                        From casual sneakers to professional footwear, we handpick every product to ensure it meets our high standards 
+                        for quality, comfort, and durability. Our team is passionate about helping you find the perfect pair.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Values Section -->
+        <section class="mb-5">
+            <h2 class="h3 text-center mb-4" style="color: var(--primary-100); font-weight: 700;">Our Values</h2>
+            <div class="values-grid">
+                <div class="about-card text-center">
+                    <div class="icon-box">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h4>Quality First</h4>
+                    <p>We only stock premium shoes that meet rigorous quality standards.</p>
+                </div>
+
+                <div class="about-card text-center">
+                    <div class="icon-box">
+                        <i class="fas fa-smile"></i>
+                    </div>
+                    <h4>Customer Care</h4>
+                    <p>Your satisfaction is our priority. We're here to help every step of the way.</p>
+                </div>
+
+                <div class="about-card text-center">
+                    <div class="icon-box">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h4>Sustainability</h4>
+                    <p>We're committed to eco-friendly practices and ethical sourcing.</p>
+                </div>
+
+                <div class="about-card text-center">
+                    <div class="icon-box">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h4>Innovation</h4>
+                    <p>Constantly exploring new styles and technologies in footwear.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-center py-4 mt-5 border-top" style="border-color: var(--primary-60) !important;">
+        <p style="color: var(--text-muted);">© 2024 ShoeHub. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
