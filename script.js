@@ -3,6 +3,8 @@
 // --- Basic product data (20 Gadget Products) ---
 const PEXELS_API_KEY = "zMdhk5QB6WkxyVU5p1mAzU9HTYHMHjJcu5piEs8OYwkwyKmNrUhSt0VC";
 
+const CURRENCY = '₱';
+
 const productList = [
   { id: 1, name: "Trail Runner 300", price: 129.99, desc: "Lightweight trail running shoe with grippy outsole.", stock: 24, image: "https://via.placeholder.com/400x280?text=Trail+Runner+300" },
   { id: 2, name: "Urban Sneak Low", price: 89.50, desc: "Everyday sneaker with breathable knit upper.", stock: 40, image: "https://via.placeholder.com/400x280?text=Urban+Sneak+Low" },
@@ -47,7 +49,6 @@ async function fetchProductImage(query) {
       }
     });
     const data = await res.json();
-    console.log(data)
     // Return the first image URL or a fallback if none found
     return data.photos?.[0]?.src?.medium || "https://picsum.photos/400/280?random=" + Math.random();
   } catch (err) {
@@ -81,7 +82,7 @@ async function renderProducts() {
               </div>
 
               <div class="card-footer mt-auto">
-                <div class="price" style="padding-bottom: 10px">$${prod.price.toFixed(2)}</div>
+                <div class="price" style="padding-bottom: 10px">₱${prod.price.toFixed(2)}</div>
                 <button class="btn btn-add btn-add-to-cart rounded-pill btn-secondary rounded w-100 add-cart-btn" data-id="${prod.id}" aria-label="Add ${prod.name} to cart" style="background-color: #B6F500; color: #000000;">Add</button>
               </div>
           </div>
@@ -166,7 +167,7 @@ function renderCart() {
                         <button type="button" class="btn btn-outline-secondary btn-update-cart" data-action="increase" data-id="${item.id}">+</button>
                     </div>
                     
-                    <span class="fw-bold me-3">$${(item.price * item.qty).toFixed(2)}</span>
+                    <span class="fw-bold me-3">₱${(item.price * item.qty).toFixed(2)}</span>
 
                     <button type="button" class="btn btn-danger btn-sm btn-remove-item" data-id="${item.id}" aria-label="Remove button">❌</button>
                 </div>
