@@ -1,5 +1,6 @@
 import express from "express";
 import Product from "../models/Product.js";
+import { authRequired, requireRole } from "../middleware/auth.js";
 
 const router = express.Router();
 
@@ -14,7 +15,7 @@ router.get("/", async (req, res) => {
 });
 
 // POST new product (for admin use)
-router.post("/", async (req, res) => {
+router.post("/", authRequired, requireRole("admin"), async (req, res) => {
   try {
     const product = await Product.create(req.body);
     res.status(201).json(product);
